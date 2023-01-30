@@ -1,10 +1,10 @@
 package mongodb
 
 import (
+	"context"
+	"github.com/marat12321/mongo/collection"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"context"
-	"mongo/collection"
 )
 
 type Collection interface {
