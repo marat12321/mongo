@@ -1,8 +1,8 @@
 package mongodb
 
 import (
+	"github.com/marat12321/mongo/collection"
 	"go.mongodb.org/mongo-driver/mongo"
-	"mongo/collection"
 )
 
 type database struct {

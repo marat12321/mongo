@@ -11,7 +11,7 @@ type Collection interface {
 	//Aggregate find request to mongo with big bool of filters
 	Aggregate(ctx context.Context, filter mongo.Pipeline, opts ...*options.AggregateOptions) (*mongo.Cursor, error)
 	//FindOne filter can be struct/map[string]interface{}/[]map[string]interface(struct/bson.M/bson.D)
-	FindOne(ctx context.Context, filter map[string]interface{}, opts ...*options.FindOneOptions) *mongo.SingleResult
+	FindOne(ctx context.Context, filter interface{}, opts ...*options.FindOneOptions) *mongo.SingleResult
 	//Find filter can be struct/map[string]interface{}/[]map[string]interface(struct/bson.M/bson.D)
 	Find(ctx context.Context, filter interface{}, opts ...*options.FindOptions) (*mongo.Cursor, error)
 	//InsertOne default id type is primitive.ObjectID but you can insert int/string id's

@@ -1,5 +1,14 @@
 package mongo
 
+//import (
+//	connect "github.com/marat12321/mongo/connectOptions"
+//	mongodb "github.com/marat12321/mongo/mongo"
+//	"fmt"
+//	"os"
+//	"go.mongodb.org/mongo-driver/bson"
+//	"context"
+//)
+//
 //func main() {
 //	var db2 = struct {
 //		Tokens mongodb.Collection
