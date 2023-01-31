@@ -35,7 +35,7 @@ type Auth struct {
 }
 
 type Opt interface {
-	Default(appName string)
+	Default(appName string) *option
 	Auth(auth Auth) *option
 	Hosts(h []string) *option
 	Pools(min, max uint64) *option

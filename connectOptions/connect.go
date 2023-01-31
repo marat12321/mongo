@@ -15,7 +15,7 @@ func Options() Opt {
 	return opt
 }
 
-func (o *option) Default(appName string) {
+func (o *option) Default(appName string) *option {
 	timeout := 10 * time.Second
 	zLevel := 1
 	*o = option{
@@ -36,6 +36,7 @@ func (o *option) Default(appName string) {
 		zlibLevel:              &zLevel,
 		zstdLevel:              &zLevel,
 	}
+	return o
 }
 
 // Auth add auth credential
