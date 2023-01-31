@@ -9,6 +9,10 @@ type filter struct {
 	Filter []bson.D
 }
 
+func New() *filter {
+	return &filter{}
+}
+
 // Set изменяет значение поля/полей при их получении на установленное в фильтре
 func (f *filter) Set(val interface{}) *filter {
 	f.Filter = append(f.Filter, bson.D{{"$set", val}})
