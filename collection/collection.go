@@ -2,6 +2,7 @@ package collection
 
 import (
 	"context"
+	"github.com/marat12321/mongo/filter"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readconcern"
@@ -51,8 +52,8 @@ func (c collection) Transaction(sc chan Transaction, acknowledged bool) {
 	})
 }
 
-func (c collection) Aggregate(ctx context.Context, filter mongo.Pipeline, opts ...*options.AggregateOptions) (*mongo.Cursor, error) {
-	cursor, err := c.coll.Aggregate(ctx, filter, opts...)
+func (c collection) Aggregate(ctx context.Context, filter filter.QueryFilter, opts ...*options.AggregateOptions) (*mongo.Cursor, error) {
+	cursor, err := c.coll.Aggregate(ctx, filter.Use(), opts...)
 	if err == mongo.ErrUnacknowledgedWrite {
 		return cursor, nil
 	}

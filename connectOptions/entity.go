@@ -1,11 +1,12 @@
 package connect
 
 import (
-	"go.mongodb.org/mongo-driver/mongo/options"
-	"time"
 	"go.mongodb.org/mongo-driver/event"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readconcern"
 	"go.mongodb.org/mongo-driver/mongo/writeconcern"
+	"time"
 )
 
 type option struct {
@@ -31,4 +32,18 @@ type Auth struct {
 	DB       string
 	UserName string
 	Password string
+}
+
+type Opt interface {
+	Default(appName string)
+	Auth(auth Auth) *option
+	Hosts(h []string) *option
+	Pools(min, max uint64) *option
+	Replica(name string) *option
+	RetryWrites(rw bool) *option
+	RetryReads(rr bool) *option
+	ServerTimeout(dur time.Duration) *option
+	Timeout(dur time.Duration) *option
+	Acknowledged(acknow bool) *option
+	Connect(db string) (*mongo.Database, *mongo.Client, error)
 }

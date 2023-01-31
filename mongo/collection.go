@@ -2,14 +2,15 @@ package mongo
 
 import (
 	"context"
-	"github.com/marat12321/mongo/collection"
+	. "github.com/marat12321/mongo/collection"
+	. "github.com/marat12321/mongo/filter"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type Collection interface {
 	//Aggregate find request to mongo with big bool of filters
-	Aggregate(ctx context.Context, filter mongo.Pipeline, opts ...*options.AggregateOptions) (*mongo.Cursor, error)
+	Aggregate(ctx context.Context, filter QueryFilter, opts ...*options.AggregateOptions) (*mongo.Cursor, error)
 	//FindOne filter can be struct/map[string]interface{}/[]map[string]interface(struct/bson.M/bson.D)
 	FindOne(ctx context.Context, filter interface{}, opts ...*options.FindOneOptions) *mongo.SingleResult
 	//Find filter can be struct/map[string]interface{}/[]map[string]interface(struct/bson.M/bson.D)
@@ -33,9 +34,5 @@ type Collection interface {
 	//Collection return mongo.collection to use CRUD ignoring package
 	Collection() *mongo.Collection
 	//Transaction start with goroutine to use transaction context in different functions if needed
-	Transaction(sc chan collection.Transaction, acknowledged bool)
-}
-
-type Connect interface {
-	Connect(db string) (*mongo.Database, *mongo.Client, error)
+	Transaction(sc chan Transaction, acknowledged bool)
 }
