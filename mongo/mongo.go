@@ -1,4 +1,4 @@
-package mongodb
+package mongo
 
 import (
 	"github.com/marat12321/mongo/collection"
