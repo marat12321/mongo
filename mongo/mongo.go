@@ -1,7 +1,7 @@
 package mongo
 
 import (
-	. "github.com/marat12321/mongo/collection"
+	"github.com/marat12321/mongo/collection"
 	connect "github.com/marat12321/mongo/connectOptions"
 	"github.com/marat12321/mongo/filter"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -10,6 +10,10 @@ import (
 type database struct {
 	db     *mongo.Database
 	client *mongo.Client
+}
+
+func Transaction() collection.Transaction {
+	return collection.Transaction{}
 }
 
 func ConnectDB(connect connect.Opt, dbName string) (database, error) {
@@ -30,5 +34,5 @@ func Filter() filter.QueryFilter {
 }
 
 func (d database) Collection(name string) Collection {
-	return New(d.db, d.client, name)
+	return collection.New(d.db, d.client, name)
 }
