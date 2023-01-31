@@ -12,8 +12,8 @@ type database struct {
 	client *mongo.Client
 }
 
-func Transaction() collection.Transaction {
-	return collection.Transaction{}
+func Transaction() chan collection.Transaction {
+	return make(chan collection.Transaction, 1)
 }
 
 func ConnectDB(connect connect.Opt, dbName string) (database, error) {
