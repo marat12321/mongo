@@ -3,6 +3,7 @@ package collection
 import (
 	"context"
 	"github.com/marat12321/mongo/filter"
+	. "github.com/marat12321/mongo/mongo"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readconcern"
