@@ -3,12 +3,16 @@ package collection
 import (
 	"context"
 	"github.com/marat12321/mongo/filter"
-	. "github.com/marat12321/mongo/mongo"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readconcern"
 	"go.mongodb.org/mongo-driver/mongo/writeconcern"
 )
+
+type Transaction struct {
+	Context mongo.SessionContext
+	Error   error
+}
 
 type collection struct {
 	coll   *mongo.Collection

@@ -2,6 +2,7 @@ package mongo
 
 import (
 	"context"
+	"github.com/marat12321/mongo/collection"
 	. "github.com/marat12321/mongo/filter"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -33,10 +34,5 @@ type Collection interface {
 	//Collection return mongo.collection to use CRUD ignoring package
 	Collection() *mongo.Collection
 	//Transaction start with goroutine to use transaction context in different functions if needed
-	Transaction(sc chan Transaction, acknowledged bool)
-}
-
-type Transaction struct {
-	Context mongo.SessionContext
-	Error   error
+	Transaction(sc chan collection.Transaction, acknowledged bool)
 }
