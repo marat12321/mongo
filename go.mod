@@ -1,4 +1,4 @@
-module github.com/marat12321/mongo
+module git.pancir.it/marat/mongo
 
 go 1.19
 

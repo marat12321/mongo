@@ -2,8 +2,8 @@ package mongo
 
 import (
 	"context"
-	"github.com/marat12321/mongo/collection"
-	. "github.com/marat12321/mongo/filter"
+	"git.pancir.it/marat/mongo/collection"
+	. "git.pancir.it/marat/mongo/filter"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

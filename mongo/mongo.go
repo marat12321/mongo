@@ -1,9 +1,9 @@
 package mongo
 
 import (
-	"github.com/marat12321/mongo/collection"
-	connect "github.com/marat12321/mongo/connectOptions"
-	"github.com/marat12321/mongo/filter"
+	"git.pancir.it/marat/mongo/collection"
+	connect "git.pancir.it/marat/mongo/connectOptions"
+	"git.pancir.it/marat/mongo/filter"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
